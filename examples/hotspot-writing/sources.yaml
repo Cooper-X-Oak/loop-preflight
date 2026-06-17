@@ -1,0 +1,16 @@
+sources:
+  - id: example-ai-news
+    name: Example AI News
+    kind: rss
+    endpoint: https://example.com/ai-news.xml
+    status: active
+    family: media
+    column: product-and-industry
+
+  - id: example-social-feed
+    name: Example Social Feed
+    kind: api
+    endpoint: https://example.com/api/social
+    status: active
+    family: social
+    column: social-observation

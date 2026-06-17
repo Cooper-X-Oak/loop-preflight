@@ -1,0 +1,17 @@
+protocol:
+  id: safety
+  title: Safety Node Protocol
+  purpose: Define external action boundaries and human gates.
+  fields:
+    - readOnly
+    - allowPublish
+    - allowExternalWrite
+    - humanReviewRequired
+  closePolicy: manual-only
+  evidenceRequired:
+    - human-confirmation
+  defaults:
+    readOnly: true
+    allowPublish: false
+    allowExternalWrite: false
+    humanReviewRequired: true

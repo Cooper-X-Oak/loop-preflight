@@ -1,0 +1,16 @@
+protocol:
+  id: output
+  title: Output Node Protocol
+  purpose: Define produced artifacts and review handoff paths.
+  fields:
+    - artifactTypes
+    - outputRoot
+    - manifestPath
+    - reviewPath
+  closePolicy: evidence-verified
+  evidenceRequired:
+    - schema-valid
+    - output-path-writable
+  reopenWhen:
+    - output root changed
+    - artifact contract changed

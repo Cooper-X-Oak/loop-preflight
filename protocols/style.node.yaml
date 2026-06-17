@@ -1,0 +1,16 @@
+protocol:
+  id: style
+  title: Style Node Protocol
+  purpose: Capture audience, voice, content type, and positioning preferences.
+  fields:
+    - audience
+    - voice
+    - contentTypes
+    - forbiddenPatterns
+  closePolicy: human-confirmed
+  evidenceRequired:
+    - human-confirmation
+  reopenWhen:
+    - audience changed
+    - voice changed
+    - content type changed

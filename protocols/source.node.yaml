@@ -1,0 +1,25 @@
+protocol:
+  id: source
+  title: Source Node Protocol
+  purpose: Configure and verify input sources.
+  fields:
+    - id
+    - name
+    - kind
+    - endpoint
+    - status
+  supportedKinds:
+    - rss
+    - api
+    - cdp
+    - github
+    - web
+  closePolicy: evidence-verified
+  evidenceRequired:
+    - schema-valid
+    - at-least-one-active-source
+    - dry-run-sample-collected
+  reopenWhen:
+    - endpoint changed
+    - kind changed
+    - active source removed

@@ -1,0 +1,12 @@
+skills:
+  - id: example-hotspot-writer
+    name: Example Hotspot Writer
+    path: .agent/skills/example-hotspot-writer/SKILL.md
+    role: writer
+    status: selected
+
+  - id: example-polish-skill
+    name: Example Polish Skill
+    path: .agent/skills/example-polish-skill/SKILL.md
+    role: polisher
+    status: selected

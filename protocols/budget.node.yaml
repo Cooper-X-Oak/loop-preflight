@@ -1,0 +1,16 @@
+protocol:
+  id: budget
+  title: Budget Node Protocol
+  purpose: Configure cadence, run caps, model-call caps, and pause rules.
+  fields:
+    - cadence
+    - maxRunsPerDay
+    - maxAgentCallsPerRun
+    - maxConsecutiveFailures
+  closePolicy: human-confirmed
+  evidenceRequired:
+    - human-confirmation
+  reopenWhen:
+    - cadence changed
+    - max run caps changed
+    - model-call caps changed

@@ -1,0 +1,18 @@
+protocol:
+  id: plugin
+  title: Plugin Node Protocol
+  purpose: Select a tool, provider, or connector capability.
+  fields:
+    - id
+    - name
+    - capability
+    - command
+    - requiresCredential
+  closePolicy: evidence-plus-human
+  evidenceRequired:
+    - plugin-found-or-disabled
+    - capability-check
+  reopenWhen:
+    - command changed
+    - credential changed
+    - capability changed

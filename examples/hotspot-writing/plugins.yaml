@@ -1,0 +1,7 @@
+plugins:
+  - id: example-illustration
+    name: Example Illustration Provider
+    capability: image-generation
+    command: example-image-cli generate
+    requiresCredential: true
+    status: disabled

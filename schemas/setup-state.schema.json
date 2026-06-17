@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loop-preflight.dev/schemas/setup-state.schema.json",
+  "title": "Setup State",
+  "type": "object",
+  "required": ["setupStatus", "runtimeEnabled", "requiredGatesTotal", "requiredGatesClosed", "openGates", "blockedGates", "staleGates"],
+  "properties": {
+    "setupStatus": {
+      "enum": ["blocked", "ready", "running", "paused"]
+    },
+    "runtimeEnabled": { "type": "boolean" },
+    "requiredGatesTotal": { "type": "number" },
+    "requiredGatesClosed": { "type": "number" },
+    "openGates": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "blockedGates": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "staleGates": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "lastCheckedAt": {
+      "type": ["string", "null"]
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,121 @@
+loop:
+  id: hotspot-writing
+  name: Hotspot Writing Loop
+  phase: setup
+  runtimeEnabled: false
+  requiredGates:
+    - identity
+    - sources
+    - contentTypes
+    - writingSkill
+    - illustrationPlugin
+    - polishSkill
+    - outputContract
+    - safetyPolicy
+    - budget
+    - dryRun
+
+nodes:
+  identity:
+    title: Audience and Positioning
+    kind: human-preference
+    required: true
+    enabled: true
+    dependsOn: []
+    protocol: style
+    gate:
+      closePolicy: human-confirmed
+
+  sources:
+    title: Sources
+    kind: connector-config
+    required: true
+    enabled: true
+    dependsOn: [identity]
+    protocol: source
+    gate:
+      closePolicy: evidence-verified
+      evidenceRequired:
+        - schema-valid
+        - at-least-one-active-source
+        - dry-run-sample-collected
+
+  contentTypes:
+    title: Content Types
+    kind: content-policy
+    required: true
+    enabled: true
+    dependsOn: [sources]
+    protocol: style
+    gate:
+      closePolicy: evidence-plus-human
+
+  writingSkill:
+    title: Writing Skill
+    kind: skill-selection
+    required: true
+    enabled: true
+    dependsOn: [contentTypes]
+    protocol: skill
+    gate:
+      closePolicy: evidence-plus-human
+
+  illustrationPlugin:
+    title: Illustration Plugin
+    kind: plugin-selection
+    required: true
+    enabled: true
+    dependsOn: [outputContract]
+    protocol: plugin
+    gate:
+      closePolicy: evidence-plus-human
+
+  polishSkill:
+    title: Polish Skill
+    kind: skill-selection
+    required: true
+    enabled: true
+    dependsOn: [writingSkill]
+    protocol: skill
+    gate:
+      closePolicy: evidence-plus-human
+
+  outputContract:
+    title: Output Contract
+    kind: output-contract
+    required: true
+    enabled: true
+    dependsOn: [writingSkill]
+    protocol: output
+    gate:
+      closePolicy: evidence-verified
+
+  safetyPolicy:
+    title: Safety Policy
+    kind: policy
+    required: true
+    enabled: true
+    dependsOn: []
+    protocol: safety
+    gate:
+      closePolicy: manual-only
+
+  budget:
+    title: Budget and Cadence
+    kind: policy
+    required: true
+    enabled: true
+    dependsOn: [safetyPolicy]
+    protocol: budget
+    gate:
+      closePolicy: human-confirmed
+
+  dryRun:
+    title: Dry Run
+    kind: verification
+    required: true
+    enabled: true
+    dependsOn: [sources, writingSkill, polishSkill, illustrationPlugin, outputContract, safetyPolicy, budget]
+    protocol: output
+    gate:
+      closePolicy: evidence-verified

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loop-preflight.dev/schemas/node.schema.json",
+  "title": "Loop Node",
+  "type": "object",
+  "required": ["title", "kind", "required", "enabled", "dependsOn", "gate"],
+  "properties": {
+    "title": { "type": "string" },
+    "kind": { "type": "string" },
+    "required": { "type": "boolean" },
+    "enabled": { "type": "boolean" },
+    "dependsOn": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "protocol": { "type": "string" },
+    "gate": {
+      "type": "object",
+      "required": ["closePolicy"],
+      "properties": {
+        "closePolicy": {
+          "enum": ["human-confirmed", "evidence-verified", "evidence-plus-human", "manual-only", "derived"]
+        },
+        "evidenceRequired": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

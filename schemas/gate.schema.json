@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loop-preflight.dev/schemas/gate.schema.json",
+  "title": "Gate State",
+  "type": "object",
+  "required": ["status", "enabled", "required", "closePolicy"],
+  "properties": {
+    "status": {
+      "enum": ["open", "ready", "checking", "closed", "blocked", "disabled", "stale"]
+    },
+    "enabled": { "type": "boolean" },
+    "required": { "type": "boolean" },
+    "closePolicy": {
+      "enum": ["human-confirmed", "evidence-verified", "evidence-plus-human", "manual-only", "derived"]
+    },
+    "closedBy": { "type": "string" },
+    "closedAt": { "type": "string" },
+    "evidence": {
+      "type": "array",
+      "items": { "$ref": "./evidence.schema.json" }
+    }
+  },
+  "additionalProperties": true
+}

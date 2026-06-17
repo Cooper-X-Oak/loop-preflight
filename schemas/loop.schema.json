@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loop-preflight.dev/schemas/loop.schema.json",
+  "title": "Loop Manifest",
+  "type": "object",
+  "required": ["loop", "nodes"],
+  "properties": {
+    "loop": {
+      "type": "object",
+      "required": ["id", "phase", "runtimeEnabled", "requiredGates"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "phase": { "type": "string" },
+        "runtimeEnabled": { "type": "boolean" },
+        "requiredGates": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": true
+    },
+    "nodes": {
+      "type": "object",
+      "additionalProperties": { "$ref": "./node.schema.json" }
+    }
+  }
+}

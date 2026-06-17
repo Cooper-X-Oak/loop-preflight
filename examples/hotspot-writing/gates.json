@@ -1,0 +1,143 @@
+{
+  "identity": {
+    "status": "closed",
+    "enabled": true,
+    "required": true,
+    "closePolicy": "human-confirmed",
+    "closedBy": "human",
+    "closedAt": "2026-06-17T18:00:00+08:00",
+    "evidence": [
+      {
+        "type": "human-confirmation",
+        "summary": "The operator selected the audience and positioning for the loop."
+      }
+    ]
+  },
+  "sources": {
+    "status": "closed",
+    "enabled": true,
+    "required": true,
+    "closePolicy": "evidence-verified",
+    "closedBy": "setup-agent",
+    "closedAt": "2026-06-17T18:05:00+08:00",
+    "evidence": [
+      {
+        "type": "schema-valid",
+        "summary": "sources.yaml parsed successfully."
+      },
+      {
+        "type": "dry-run-sample",
+        "summary": "Two active example sources returned sample items."
+      }
+    ]
+  },
+  "contentTypes": {
+    "status": "closed",
+    "enabled": true,
+    "required": true,
+    "closePolicy": "evidence-plus-human",
+    "closedBy": "human",
+    "closedAt": "2026-06-17T18:10:00+08:00",
+    "evidence": [
+      {
+        "type": "human-selection",
+        "summary": "The operator selected hot-take, product, and research columns."
+      }
+    ]
+  },
+  "writingSkill": {
+    "status": "closed",
+    "enabled": true,
+    "required": true,
+    "closePolicy": "evidence-plus-human",
+    "closedBy": "human",
+    "closedAt": "2026-06-17T18:12:00+08:00",
+    "evidence": [
+      {
+        "type": "skill-md-found",
+        "summary": "The selected writing skill exposes a SKILL.md contract."
+      },
+      {
+        "type": "human-selection",
+        "summary": "The operator selected the writing skill."
+      }
+    ]
+  },
+  "illustrationPlugin": {
+    "status": "closed",
+    "enabled": false,
+    "required": true,
+    "closePolicy": "evidence-plus-human",
+    "closedBy": "human",
+    "closedAt": "2026-06-17T18:14:00+08:00",
+    "evidence": [
+      {
+        "type": "plugin-disabled",
+        "summary": "The operator explicitly disabled illustration for the first dry run."
+      }
+    ]
+  },
+  "polishSkill": {
+    "status": "closed",
+    "enabled": true,
+    "required": true,
+    "closePolicy": "evidence-plus-human",
+    "closedBy": "human",
+    "closedAt": "2026-06-17T18:16:00+08:00",
+    "evidence": [
+      {
+        "type": "skill-md-found",
+        "summary": "The selected polish skill exposes a SKILL.md contract."
+      }
+    ]
+  },
+  "outputContract": {
+    "status": "closed",
+    "enabled": true,
+    "required": true,
+    "closePolicy": "evidence-verified",
+    "closedBy": "setup-agent",
+    "closedAt": "2026-06-17T18:18:00+08:00",
+    "evidence": [
+      {
+        "type": "schema-valid",
+        "summary": "The output contract contains required article and manifest paths."
+      }
+    ]
+  },
+  "safetyPolicy": {
+    "status": "closed",
+    "enabled": true,
+    "required": true,
+    "closePolicy": "manual-only",
+    "closedBy": "human",
+    "closedAt": "2026-06-17T18:20:00+08:00",
+    "evidence": [
+      {
+        "type": "human-confirmation",
+        "summary": "The operator confirmed no external publishing or account write actions are allowed."
+      }
+    ]
+  },
+  "budget": {
+    "status": "closed",
+    "enabled": true,
+    "required": true,
+    "closePolicy": "human-confirmed",
+    "closedBy": "human",
+    "closedAt": "2026-06-17T18:22:00+08:00",
+    "evidence": [
+      {
+        "type": "human-confirmation",
+        "summary": "The operator selected run cadence and budget caps."
+      }
+    ]
+  },
+  "dryRun": {
+    "status": "open",
+    "enabled": true,
+    "required": true,
+    "closePolicy": "evidence-verified",
+    "evidence": []
+  }
+}

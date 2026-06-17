@@ -1,0 +1,19 @@
+{
+  "name": "loop-preflight",
+  "version": "0.1.0",
+  "description": "A file-native preflight protocol for agent loops.",
+  "type": "module",
+  "private": false,
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "validate:examples": "node scripts/validate-examples.mjs"
+  },
+  "keywords": [
+    "agent",
+    "loop",
+    "preflight",
+    "automation",
+    "skills"
+  ],
+  "license": "MIT"
+}

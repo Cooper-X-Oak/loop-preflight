@@ -1,0 +1,24 @@
+protocol:
+  id: skill
+  title: Skill Node Protocol
+  purpose: Select an agent skill and verify its contract.
+  fields:
+    - id
+    - name
+    - path
+    - role
+  roles:
+    - writer
+    - verifier
+    - polisher
+    - researcher
+    - illustrator
+  closePolicy: evidence-plus-human
+  evidenceRequired:
+    - skill-md-found
+    - skill-contract-valid
+    - human-selection
+  reopenWhen:
+    - skill path changed
+    - role changed
+    - SKILL.md changed
