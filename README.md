@@ -112,6 +112,66 @@ The validator checks that:
 - closed gates include evidence
 - `manual-only` gates cannot be closed by `setup-agent`
 
+## Inputs and outputs
+
+The protocol reads a loop manifest, node configuration, gate definitions, and
+setup state. Optional evidence files record why a gate may be closed.
+
+Its output is not an automatically running agent. The output is a validated,
+file-native setup state that tells a separate runtime whether execution is
+allowed. Invalid schemas, dependency cycles, missing gates, unsupported status
+transitions, or missing evidence keep runtime disabled.
+
+## Minimal use
+
+The project has no third-party runtime or development dependencies. A current
+Node.js installation is sufficient; continuous integration uses Node.js 22.
+
+Run both validation commands:
+
+    npm test
+    npm run validate:examples
+
+The first command runs the Node test suite. The second validates the checked-in
+example configurations.
+
+## Continuous validation
+
+GitHub Actions runs both validation commands for pushes and pull requests. The
+workflow installs Node.js 22 but does not run npm install because package.json
+declares no dependencies or devDependencies.
+
+## Safety boundary
+
+- This package validates setup contracts; it does not execute the configured
+  loop, contact external services, spend a budget, publish content, or grant
+  permissions.
+- Human-confirmed and manual-only decisions remain human responsibilities.
+- Credentials, cookies, account identifiers, private content, and live runtime
+  databases do not belong in protocol examples or evidence fixtures.
+- A closed gate means the recorded evidence passed the declared policy. It does
+  not prove that an external system is safe beyond that policy.
+
+## Known limitations
+
+- Version 0.1.0 provides schemas, protocols, prompts, examples, and validation
+  scripts rather than a packaged CLI or graphical setup console.
+- YAML inputs are inspected by the current project-specific validator; this is
+  not a general-purpose YAML or workflow engine.
+- Validation is local and file-native. It does not verify external accounts,
+  credentials, service availability, legal authority, or publishing approval.
+- Real-world loop templates and runtime integration remain roadmap work.
+
+## Project status
+
+Version 0.1.0 establishes the file-native preflight protocol and its initial
+example validation. The CLI, setup console, runtime dashboard, and additional
+real-world templates remain future work.
+
+## License
+
+The project is available under the MIT License. See LICENSE.
+
 ## Roadmap
 
 1. Protocol and examples
